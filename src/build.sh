@@ -13,20 +13,19 @@
 # This script will be hosted on <https://github.com/paule32> for Free.
 # --------------------------------------------------------------------------------
 echo "[= build de_DE localization file =]"
-cd po
+mkdir -p ./locale/de_DE.utf8/LC_MESSAGES/
 # --------------------------------------------------------------------------------
 # get encoding from original "de_DE.text" file, and store result into FROM_ENC ...
 # --------------------------------------------------------------------------------
-FROM_ENC=$(file -i de_DE.text | awk '{print $3}' | cut -d "=" -f 2-)
+FROM_ENC=$(file -i ./po/de_DE.text | awk '{print $3}' | cut -d "=" -f 2-)
 LAST_MOD=$(echo "Jens Kallup \\<paule32\\.jk\\@gmail\\.com\\>")
 # --------------------------------------------------------------------------------
 # convert ANSI German Umlauts to UTF-8 Encoding characters, pipe result ...
 # --------------------------------------------------------------------------------
 echo "[= convert input Encoding to UTF-8 =]"
-iconv --from-code=${FROM_ENC} --to-code=UTF-8 de_DE.text > windows.pot
+iconv --from-code=${FROM_ENC} --to-code=UTF-8 ./po/de_DE.text > ./temp/windows.pot
 if [[ $? -gt 0 ]]; then
   echo "error: iconv file could not be converted to utf-8 encoding format."
-  cd ..
   exit 1
 fi
 
@@ -34,10 +33,9 @@ fi
 # create german locale "de_DE_utf8.po" file for getext localization ...
 # --------------------------------------------------------------------------------
 echo "[= create windows.po =]"
-msginit --locale de_DE --output-file windows.po --input windows.pot
+msginit --locale de_DE --output-file ./temp/windows.po --input ./temp/windows.pot
 if [[ $? -gt 0 ]]; then
   echo "error: msginit could not create windows.po file."
-  cd ..
   exit 1
 fi
 
@@ -45,10 +43,9 @@ fi
 # replace Translator in "de_DE_utf8.po" with sed ...
 # --------------------------------------------------------------------------------
 echo "[= replace translator =]"
-sed -i 's/\"Last-Translator\: .*\\n\"/\"Last-Translator\: Jens Kallup \<paule32\.jk\@gmail\.com\>\\n\"/g' windows.po
+sed -i 's/\"Last-Translator\: .*\\n\"/\"Last-Translator\: Jens Kallup \<paule32\.jk\@gmail\.com\>\\n\"/g' ./temp/windows.po
 if [[ $? -gt 0 ]]; then
   echo "error: sed can not replace translator."
-  cd ..
   exit 1
 fi
 
@@ -56,30 +53,27 @@ fi
 # write the final localization file "de_DE.mo" ...
 # --------------------------------------------------------------------------------
 echo "[= create final utf8.mo =]"
-msgfmt --check --output-file windows.mo windows.po
+msgfmt --check --output-file \
+	./temp/windows.mo \
+	./temp/windows.po
 if [[ $? -gt 0 ]]; then
   echo "error: msgfmt could not create windows.mo file."
   cd ..
   exit 1
 fi
 
-mkdir -p ../locale/de_DE.utf8/LC_MESSAGES/
-cp windows.mo ../locale/de_DE.utf8/LC_MESSAGES/windows.mo
-
 # --------------------------------------------------------------------------------
 # to hold locales database tiny as possible, we use gzip, to shrink the size of
 # the final output file ...
 # --------------------------------------------------------------------------------
 echo "[= compress windows.mo file =]"
-gzip -9 -c windows.mo > windows.mo.gz
+gzip -9 -c ./temp/windows.mo > ./locale/de_DE.utf8/LC_MESSAGES/windows.mo.gz
 
 # --------------------------------------------------------------------------------
 # create object file ...
 # --------------------------------------------------------------------------------
 echo "[= compile GetLastError.cc file =]"
-cd ..
-mkdir -p ./temp/
-g++ -O2 -std=c++20 -o temp/GetLastError.o -c GetLastError.cc
+g++ -O2 -std=c++20 -o ./temp/GetLastError.o -c GetLastError.cc
 if [[ $? -gt 0 ]]; then
   echo "error: could not create ./temp/GetLastError.o"
   exit 1
