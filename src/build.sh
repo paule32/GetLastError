@@ -14,6 +14,8 @@
 # --------------------------------------------------------------------------------
 echo "[= build de_DE localization file =]"
 mkdir -p ./locale/de_DE.utf8/LC_MESSAGES/
+mkdir -p ./temp
+
 # --------------------------------------------------------------------------------
 # get encoding from original "de_DE.text" file, and store result into FROM_ENC ...
 # --------------------------------------------------------------------------------
