@@ -1,4 +1,7 @@
-src/locale
-src/temp/*
-src/temp/windows.mo
-src/temp/windows.po
+./src/locale
+./src/temp/*
+./src/temp/*.*
+./src/temp/windows.mo
+./src/temp/windows.po
+./src/temp/windows.pot
+
