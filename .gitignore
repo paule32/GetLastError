@@ -1,1 +1,4 @@
 src/locale
+src/temp/*
+src/temp/windows.mo
+src/temp/windows.po

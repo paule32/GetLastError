@@ -27,6 +27,7 @@ extern "C" {
 # include <iostream>
 # include <string>      // std::string
 # include <map>         // std::map
+# include <optional>
 
 // --------------------------------------------------------------------
 // @brief The MSDN - Microsoft Developer Network documentation contains
@@ -734,7 +735,7 @@ std::map< DWORD, std::string > WindowsErrorCode =
     { ERROR_AUTODATASEG_EXCEEDS_64k(),"The operating system cannot run this application program." },
     { ERROR_RING2SEG_MUST_BE_MOVABLE(),"The code segment cannot be greater than or equal to 64K." },
     { ERROR_RELOC_CHAIN_XEEDS_SEGLIM(),"The operating system cannot run %1." },
-    { ERROR_INFLOOP_IN_RELOC_CHAIN(),"The operating system cannot run %1."
+    { ERROR_INFLOOP_IN_RELOC_CHAIN(),"The operating system cannot run %1." },
     { ERROR_ENVVAR_NOT_FOUND(),"The system could not find the environment option that was entered." },
     { ERROR_NO_SIGNAL_SENT(),"No process in the command subtree has a signal handler." },
     { ERROR_FILENAME_EXCED_RANGE(),"The filename or extension is too long." },
@@ -851,18 +852,34 @@ std::map< DWORD, std::string > WindowsErrorCode =
 };
 
 // -------------------------------------------------------------------
-// @brief This function returns the error code string as std::string
-//        depend on the give code.
+// @brief This function returns a string if the error to this text was
+//        found, else: the function will return a "sentinel" - a empty
+//        string as std::optinal container type (std::nullptr).
 //
 // @param  DWORD        The "GetLastError" error code
-// @return std::string  The maped error text
+// @return std::string  If error code found then the assoc std::string
 // -------------------------------------------------------------------
-std::string getErrorCode(DWORD code)
+std::optional<std::string> getErrorCode(DWORD code)
 {
     auto it = WindowsErrorCode.find(code);
     if (it != WindowsErrorCode.end()) {
-        return gettext(it -> second() );
-    }   return std::string("error unknown");
+        return it->second;
+    }   return std::string(gettext("unknown error"));
 }
+
+// -------------------------------------------------------------------
+// @brief  In real C++ productive usage, we can use the power of C++
+//         templates. We can get the error code text by "asString",
+//         which returns a std::string.
+//         Okay, this is in real make-up C++ code - but nice to see,
+//         if the code bloat up.
+//
+// @param  nothing
+// @return std::string
+// -------------------------------------------------------------------
+template <typename T>
+std::string asString(const T& value) { return getErrorCode(value); }
+
+template <typename T> std::string foo() { return T()(42); }
 
 }   // namespace: windows
