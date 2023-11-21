@@ -28,6 +28,9 @@ extern "C" {
 # include <string>      // std::string
 # include <map>         // std::map
 # include <optional>
+# include <functional>  // std::function
+# include <sstream>
+# include <any>
 
 // --------------------------------------------------------------------
 // @brief The MSDN - Microsoft Developer Network documentation contains
@@ -852,34 +855,407 @@ std::map< DWORD, std::string > WindowsErrorCode =
 };
 
 // -------------------------------------------------------------------
-// @brief This function returns a string if the error to this text was
-//        found, else: the function will return a "sentinel" - a empty
-//        string as std::optinal container type (std::nullptr).
-//
-// @param  DWORD        The "GetLastError" error code
-// @return std::string  If error code found then the assoc std::string
-// -------------------------------------------------------------------
-std::optional<std::string> getErrorCode(DWORD code)
-{
-    auto it = WindowsErrorCode.find(code);
-    if (it != WindowsErrorCode.end()) {
-        return it->second;
-    }   return std::string(gettext("unknown error"));
-}
-
-// -------------------------------------------------------------------
 // @brief  In real C++ productive usage, we can use the power of C++
 //         templates. We can get the error code text by "asString",
 //         which returns a std::string.
 //         Okay, this is in real make-up C++ code - but nice to see,
-//         if the code bloat up.
-//
-// @param  nothing
-// @return std::string
+//         when the code blow up.
 // -------------------------------------------------------------------
+std::optional<std::string> getErrorCode(DWORD code) {
+    auto it = WindowsErrorCode.find(code);
+    if (it != WindowsErrorCode.end()) {
+        return it->second;
+    }   return std::nullopt;
+}
 template <typename T>
-std::string asString(const T& value) { return getErrorCode(value); }
+struct asString {
+    std::string operator ()(DWORD value) const {
+        auto   result = getErrorCode(value);
+        return result.value_or("unknown error");
+    }
+};
 
-template <typename T> std::string foo() { return T()(42); }
+template <template< typename> class T> std::string ERROR_SUCCESS() { return T<DWORD>()(ERROR_SUCCESS()); }
+template <template< typename> class T> std::string ERROR_INVALID_FUNCTION() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_FILE_NOT_FOUND() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_PATH_NOT_FOUND() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_OPEN_FILES() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_ACCESS_DENIED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_HANDLE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_ARENA_TRASHED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NOT_ENOUGH_MEMORY() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_BLOCK() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_ENVIRONMENT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_FORMAT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_ACCESS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_DATA() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_OUTOFMEMORY() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_DRIVE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_CURRENT_DIRECTORY() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NOT_SAME_DEVICE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NO_MORE_FILES() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_WRITE_PROTECT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_UNIT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NOT_READY() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_COMMAND() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_CRC() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_LENGTH() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SEEK() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NOT_DOS_DISK() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SECTOR_NOT_FOUND() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_OUT_OF_PAPER() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_WRITE_FAULT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_READ_FAULT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_GEN_FAILURE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SHARING_VIOLATION() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_LOCK_VIOLATION() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_WRONG_DISK() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SHARING_BUFFER_EXCEEDED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_HANDLE_EOF() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_HANDLE_DISK_FULL() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NOT_SUPPORTED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_REM_NOT_LIST() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_DUP_NAME() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_NETPATH() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NETWORK_BUSY() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_DEV_NOT_EXIST() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_CMDS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_ADAP_HDW_ERR() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_NET_RESP() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_UNEXP_NET_ERR() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_REM_ADAP() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_PRINTQ_FULL() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NO_SPOOL_SPACE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_PRINT_CANCELLED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NETNAME_DELETED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NETWORK_ACCESS_DENIED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_DEV_TYPE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_NET_NAME() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_NAMES() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_SESS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SHARING_PAUSED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_REQ_NOT_ACCEP() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_REDIR_PAUSED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_FILE_EXISTS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_CANNOT_MAKE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_FAIL_I24() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_OUT_OF_STRUCTURES() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_ALREADY_ASSIGNED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_PASSWORD() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_PARAMETER() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NET_WRITE_FAULT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NO_PROC_SLOTS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_SEMAPHORES() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_EXCL_SEM_ALREADY_OWNED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SEM_IS_SET() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_SEM_REQUESTS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_AT_INTERRUPT_TIME() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SEM_OWNER_DIED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SEM_USER_LIMIT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_DISK_CHANGE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_DRIVE_LOCKED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BROKEN_PIPE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_OPEN_FAILED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BUFFER_OVERFLOW() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_DISK_FULL() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NO_MORE_SEARCH_HANDLES() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_TARGET_HANDLE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_CATEGORY() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_VERIFY_SWITCH() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_DRIVER_LEVEL() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_CALL_NOT_IMPLEMENTED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SEM_TIMEOUT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INSUFFICIENT_BUFFER() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_NAME() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_LEVEL() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NO_VOLUME_LABEL() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_MOD_NOT_FOUND() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_PROC_NOT_FOUND() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_WAIT_NO_CHILDREN() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_CHILD_NOT_COMPLETE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_DIRECT_ACCESS_HANDLE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NEGATIVE_SEEK() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SEEK_ON_DEVICE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_IS_JOIN_TARGET() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_IS_JOINED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_IS_SUBSTED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NOT_JOINED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NOT_SUBSTED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_JOIN_TO_JOIN() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SUBST_TO_SUBST() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_JOIN_TO_SUBST() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SUBST_TO_JOIN() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BUSY_DRIVE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SAME_DRIVE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_DIR_NOT_ROOT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_DIR_NOT_EMPTY() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_IS_SUBST_PATH() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_IS_JOIN_PATH() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_PATH_BUSY() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_IS_SUBST_TARGET() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SYSTEM_TRACE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_EVENT_COUNT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_MUXWAITERS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_LIST_FORMAT() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_LABEL_TOO_LONG() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_TCBS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SIGNAL_REFUSED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_DISCARDED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_NOT_LOCKED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_THREADID_ADDR() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_ARGUMENTS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BAD_PATHNAME() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SIGNAL_PENDING() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_MAX_THRDS_REACHED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_LOCK_FAILED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_BUSY() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_DEVICE_SUPPORT_IN_PROGRESS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_CANCEL_VIOLATION() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_ATOMIC_LOCKS_NOT_SUPPORTED() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_SEGMENT_NUMBER() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_ORDINAL() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_ALREADY_EXISTS() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_FLAG_NUMBER() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_SEM_NOT_FOUND() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_STARTING_CODESEG() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_STACKSEG() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_MODULETYPE() { return T<DWORD>()(1); }
+template <template< typename> class T> std::string ERROR_INVALID_EXE_SIGNATURE() { return T<DWORD>()(ERROR_INVALID_EXE_SIGNATURE()); }
+template <template< typename> class T> std::string ERROR_EXE_MARKED_INVALID() { return T<DWORD>()(ERROR_EXE_MARKED_INVALID()); }
+template <template< typename> class T> std::string ERROR_BAD_EXE_FORMAT() { return T<DWORD>()(ERROR_BAD_EXE_FORMAT()); }
+template <template< typename> class T> std::string ERROR_ITERATED_DATA_EXCEEDS_64k() { return T<DWORD>()(ERROR_ITERATED_DATA_EXCEEDS_64k()); }
+template <template< typename> class T> std::string ERROR_INVALID_MINALLOCSIZE() { return T<DWORD>()(ERROR_INVALID_MINALLOCSIZE()); }
+template <template< typename> class T> std::string ERROR_DYNLINK_FROM_INVALID_RING() { return T<DWORD>()(ERROR_DYNLINK_FROM_INVALID_RING()); }
+template <template< typename> class T> std::string ERROR_IOPL_NOT_ENABLED() { return T<DWORD>()(ERROR_IOPL_NOT_ENABLED()); }
+template <template< typename> class T> std::string ERROR_INVALID_SEGDPL() { return T<DWORD>()(ERROR_INVALID_SEGDPL()); }
+template <template< typename> class T> std::string ERROR_AUTODATASEG_EXCEEDS_64k() { return T<DWORD>()(ERROR_AUTODATASEG_EXCEEDS_64k()); }
+template <template< typename> class T> std::string ERROR_RING2SEG_MUST_BE_MOVABLE() { return T<DWORD>()(ERROR_RING2SEG_MUST_BE_MOVABLE()); }
+template <template< typename> class T> std::string ERROR_RELOC_CHAIN_XEEDS_SEGLIM() { return T<DWORD>()(ERROR_RELOC_CHAIN_XEEDS_SEGLIM()); }
+template <template< typename> class T> std::string ERROR_INFLOOP_IN_RELOC_CHAIN() { return T<DWORD>()(ERROR_INFLOOP_IN_RELOC_CHAIN()); }
+template <template< typename> class T> std::string ERROR_ENVVAR_NOT_FOUND() { return T<DWORD>()(ERROR_ENVVAR_NOT_FOUND()); }
+template <template< typename> class T> std::string ERROR_NO_SIGNAL_SENT() { return T<DWORD>()(ERROR_NO_SIGNAL_SENT()); }
+template <template< typename> class T> std::string ERROR_FILENAME_EXCED_RANGE() { return T<DWORD>()(ERROR_FILENAME_EXCED_RANGE()); }
+template <template< typename> class T> std::string ERROR_RING2_STACK_IN_USE() { return T<DWORD>()(ERROR_RING2_STACK_IN_USE()); }
+template <template< typename> class T> std::string ERROR_META_EXPANSION_TOO_LONG() { return T<DWORD>()(ERROR_META_EXPANSION_TOO_LONG()); }
+template <template< typename> class T> std::string ERROR_INVALID_SIGNAL_NUMBER() { return T<DWORD>()(ERROR_INVALID_SIGNAL_NUMBER()); }
+template <template< typename> class T> std::string ERROR_THREAD_1_INACTIVE() { return T<DWORD>()(ERROR_THREAD_1_INACTIVE()); }
+template <template< typename> class T> std::string ERROR_LOCKED() { return T<DWORD>()(ERROR_LOCKED()); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_MODULES() { return T<DWORD>()(ERROR_TOO_MANY_MODULES()); }
+template <template< typename> class T> std::string ERROR_NESTING_NOT_ALLOWED() { return T<DWORD>()(ERROR_NESTING_NOT_ALLOWED()); }
+template <template< typename> class T> std::string ERROR_EXE_MACHINE_TYPE_MISMATCH() { return T<DWORD>()(ERROR_EXE_MACHINE_TYPE_MISMATCH()); }
+template <template< typename> class T> std::string ERROR_EXE_CANNOT_MODIFY_SIGNED_BINARY() { return T<DWORD>()(ERROR_EXE_CANNOT_MODIFY_SIGNED_BINARY()); }
+template <template< typename> class T> std::string ERROR_EXE_CANNOT_MODIFY_STRONG_SIGNED_BINARY() { return T<DWORD>()(ERROR_EXE_CANNOT_MODIFY_STRONG_SIGNED_BINARY()); }
+template <template< typename> class T> std::string ERROR_FILE_CHECKED_OUT() { return T<DWORD>()(ERROR_FILE_CHECKED_OUT()); }
+template <template< typename> class T> std::string ERROR_CHECKOUT_REQUIRED() { return T<DWORD>()(ERROR_CHECKOUT_REQUIRED()); }
+template <template< typename> class T> std::string ERROR_BAD_FILE_TYPE() { return T<DWORD>()(ERROR_BAD_FILE_TYPE()); }
+template <template< typename> class T> std::string ERROR_FILE_TOO_LARGE() { return T<DWORD>()(ERROR_FILE_TOO_LARGE()); }
+template <template< typename> class T> std::string ERROR_FORMS_AUTH_REQUIRED() { return T<DWORD>()(ERROR_FORMS_AUTH_REQUIRED()); }
+template <template< typename> class T> std::string ERROR_VIRUS_INFECTED() { return T<DWORD>()(ERROR_VIRUS_INFECTED()); }
+template <template< typename> class T> std::string ERROR_VIRUS_DELETED() { return T<DWORD>()(ERROR_VIRUS_DELETED()); }
+template <template< typename> class T> std::string ERROR_PIPE_LOCAL() { return T<DWORD>()(ERROR_PIPE_LOCAL()); }
+template <template< typename> class T> std::string ERROR_BAD_PIPE() { return T<DWORD>()(ERROR_BAD_PIPE()); }
+template <template< typename> class T> std::string ERROR_PIPE_BUSY() { return T<DWORD>()(ERROR_PIPE_BUSY()); }
+template <template< typename> class T> std::string ERROR_NO_DATA() { return T<DWORD>()(ERROR_NO_DATA()); }
+template <template< typename> class T> std::string ERROR_PIPE_NOT_CONNECTED() { return T<DWORD>()(ERROR_PIPE_NOT_CONNECTED()); }
+template <template< typename> class T> std::string ERROR_MORE_DATA() { return T<DWORD>()(ERROR_MORE_DATA()); }
+template <template< typename> class T> std::string ERROR_VC_DISCONNECTED() { return T<DWORD>()(ERROR_VC_DISCONNECTED()); }
+template <template< typename> class T> std::string ERROR_INVALID_EA_NAME() { return T<DWORD>()(ERROR_INVALID_EA_NAME()); }
+template <template< typename> class T> std::string ERROR_EA_LIST_INCONSISTENT() { return T<DWORD>()(ERROR_EA_LIST_INCONSISTENT()); }
+template <template< typename> class T> std::string WAIT_TIMEOUT() { return T<DWORD>()(WAIT_TIMEOUT()); }
+template <template< typename> class T> std::string ERROR_NO_MORE_ITEMS() { return T<DWORD>()(ERROR_NO_MORE_ITEMS()); }
+template <template< typename> class T> std::string ERROR_CANNOT_COPY() { return T<DWORD>()(ERROR_CANNOT_COPY()); }
+template <template< typename> class T> std::string ERROR_DIRECTORY() { return T<DWORD>()(ERROR_DIRECTORY()); }
+template <template< typename> class T> std::string ERROR_EAS_DIDNT_FIT() { return T<DWORD>()(ERROR_EAS_DIDNT_FIT()); }
+template <template< typename> class T> std::string ERROR_EA_FILE_CORRUPT() { return T<DWORD>()(ERROR_EA_FILE_CORRUPT()); }
+template <template< typename> class T> std::string ERROR_EA_TABLE_FULL() { return T<DWORD>()(ERROR_EA_TABLE_FULL()); }
+template <template< typename> class T> std::string ERROR_INVALID_EA_HANDLE() { return T<DWORD>()(ERROR_INVALID_EA_HANDLE()); }
+template <template< typename> class T> std::string ERROR_EAS_NOT_SUPPORTED() { return T<DWORD>()(ERROR_EAS_NOT_SUPPORTED()); }
+template <template< typename> class T> std::string ERROR_NOT_OWNER() { return T<DWORD>()(ERROR_NOT_OWNER()); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_POSTS() { return T<DWORD>()(ERROR_TOO_MANY_POSTS()); }
+template <template< typename> class T> std::string ERROR_PARTIAL_COPY() { return T<DWORD>()(ERROR_PARTIAL_COPY()); }
+template <template< typename> class T> std::string ERROR_OPLOCK_NOT_GRANTED() { return T<DWORD>()(ERROR_OPLOCK_NOT_GRANTED()); }
+template <template< typename> class T> std::string ERROR_INVALID_OPLOCK_PROTOCOL() { return T<DWORD>()(ERROR_INVALID_OPLOCK_PROTOCOL()); }
+template <template< typename> class T> std::string ERROR_DISK_TOO_FRAGMENTED() { return T<DWORD>()(ERROR_DISK_TOO_FRAGMENTED()); }
+template <template< typename> class T> std::string ERROR_DELETE_PENDING() { return T<DWORD>()(ERROR_DELETE_PENDING()); }
+template <template< typename> class T> std::string ERROR_INCOMPATIBLE_WITH_GLOBAL_SHORT_NAME_REGISTRY_SETTING() { return T<DWORD>()(ERROR_INCOMPATIBLE_WITH_GLOBAL_SHORT_NAME_REGISTRY_SETTING()); }
+template <template< typename> class T> std::string ERROR_SHORT_NAMES_NOT_ENABLED_ON_VOLUME() { return T<DWORD>()(ERROR_SHORT_NAMES_NOT_ENABLED_ON_VOLUME()); }
+template <template< typename> class T> std::string ERROR_SECURITY_STREAM_IS_INCONSISTENT() { return T<DWORD>()(ERROR_SECURITY_STREAM_IS_INCONSISTENT()); }
+template <template< typename> class T> std::string ERROR_INVALID_LOCK_RANGE() { return T<DWORD>()(ERROR_INVALID_LOCK_RANGE()); }
+template <template< typename> class T> std::string ERROR_IMAGE_SUBSYSTEM_NOT_PRESENT() { return T<DWORD>()(ERROR_IMAGE_SUBSYSTEM_NOT_PRESENT()); }
+template <template< typename> class T> std::string ERROR_NOTIFICATION_GUID_ALREADY_DEFINED() { return T<DWORD>()(ERROR_NOTIFICATION_GUID_ALREADY_DEFINED()); }
+template <template< typename> class T> std::string ERROR_INVALID_EXCEPTION_HANDLER() { return T<DWORD>()(ERROR_INVALID_EXCEPTION_HANDLER()); }
+template <template< typename> class T> std::string ERROR_DUPLICATE_PRIVILEGES() { return T<DWORD>()(ERROR_DUPLICATE_PRIVILEGES()); }
+template <template< typename> class T> std::string ERROR_NO_RANGES_PROCESSED() { return T<DWORD>()(ERROR_NO_RANGES_PROCESSED()); }
+template <template< typename> class T> std::string ERROR_NOT_ALLOWED_ON_SYSTEM_FILE() { return T<DWORD>()(ERROR_NOT_ALLOWED_ON_SYSTEM_FILE()); }
+template <template< typename> class T> std::string ERROR_DISK_RESOURCES_EXHAUSTED() { return T<DWORD>()(ERROR_DISK_RESOURCES_EXHAUSTED()); }
+template <template< typename> class T> std::string ERROR_INVALID_TOKEN() { return T<DWORD>()(ERROR_INVALID_TOKEN()); }
+template <template< typename> class T> std::string ERROR_DEVICE_FEATURE_NOT_SUPPORTED() { return T<DWORD>()(ERROR_DEVICE_FEATURE_NOT_SUPPORTED()); }
+template <template< typename> class T> std::string ERROR_MR_MID_NOT_FOUND() { return T<DWORD>()(ERROR_MR_MID_NOT_FOUND()); }
+template <template< typename> class T> std::string ERROR_SCOPE_NOT_FOUND() { return T<DWORD>()(ERROR_SCOPE_NOT_FOUND()); }
+template <template< typename> class T> std::string ERROR_UNDEFINED_SCOPE() { return T<DWORD>()(ERROR_UNDEFINED_SCOPE()); }
+template <template< typename> class T> std::string ERROR_INVALID_CAP() { return T<DWORD>()(ERROR_INVALID_CAP()); }
+template <template< typename> class T> std::string ERROR_DEVICE_UNREACHABLE() { return T<DWORD>()(ERROR_DEVICE_UNREACHABLE()); }
+template <template< typename> class T> std::string ERROR_DEVICE_NO_RESOURCES() { return T<DWORD>()(ERROR_DEVICE_NO_RESOURCES()); }
+template <template< typename> class T> std::string ERROR_DATA_CHECKSUM_ERROR() { return T<DWORD>()(ERROR_DATA_CHECKSUM_ERROR()); }
+template <template< typename> class T> std::string ERROR_INTERMIXED_KERNEL_EA_OPERATION() { return T<DWORD>()(ERROR_INTERMIXED_KERNEL_EA_OPERATION()); }
+template <template< typename> class T> std::string ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED() { return T<DWORD>()(ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED()); }
+template <template< typename> class T> std::string ERROR_OFFSET_ALIGNMENT_VIOLATION() { return T<DWORD>()(ERROR_OFFSET_ALIGNMENT_VIOLATION()); }
+template <template< typename> class T> std::string ERROR_INVALID_FIELD_IN_PARAMETER_LIST() { return T<DWORD>()(ERROR_INVALID_FIELD_IN_PARAMETER_LIST()); }
+template <template< typename> class T> std::string ERROR_OPERATION_IN_PROGRESS() { return T<DWORD>()(ERROR_OPERATION_IN_PROGRESS()); }
+template <template< typename> class T> std::string ERROR_BAD_DEVICE_PATH() { return T<DWORD>()(ERROR_BAD_DEVICE_PATH()); }
+template <template< typename> class T> std::string ERROR_TOO_MANY_DESCRIPTORS() { return T<DWORD>()(ERROR_TOO_MANY_DESCRIPTORS()); }
+template <template< typename> class T> std::string ERROR_SCRUB_DATA_DISABLED() { return T<DWORD>()(ERROR_SCRUB_DATA_DISABLED()); }
+template <template< typename> class T> std::string ERROR_NOT_REDUNDANT_STORAGE() { return T<DWORD>()(ERROR_NOT_REDUNDANT_STORAGE()); }
+
+template <template< typename> class T>
+std::string
+ERROR_RESIDENT_FILE_NOT_SUPPORTED(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T<DWORD>()(ERROR_RESIDENT_FILE_NOT_SUPPORTED());
+}
+
+template <template< typename> class T>
+std::string
+ERROR_COMPRESSED_FILE_NOT_SUPPORTED(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T<DWORD>()(ERROR_COMPRESSED_FILE_NOT_SUPPORTED());
+}
+
+template <template< typename> class T>
+std::string
+ERROR_DIRECTORY_NOT_SUPPORTED(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T<DWORD>()(ERROR_DIRECTORY_NOT_SUPPORTED());
+}
+
+template <template< typename> class T>
+std::string
+ERROR_NOT_READ_FROM_COPY(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T<DWORD>()(ERROR_NOT_READ_FROM_COPY());
+}
+
+template <typename T>
+std::string
+ERROR_FAIL_NOACTION_REBOOT(
+std::function<
+    void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T()(ERROR_FAIL_NOACTION_REBOOT());
+}
+
+template <typename T>
+std::string
+ERROR_FAIL_SHUTDOWN(
+std::function<
+    void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T()(ERROR_FAIL_SHUTDOWN());
+}
+
+template <typename T>
+std::string
+ERROR_FAIL_RESTART(
+std::function<
+    void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T()(ERROR_FAIL_RESTART());
+}
+
+template <typename T>
+std::string
+ERROR_MAX_SESSIONS_REACHED(
+std::function<
+    void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T()(ERROR_MAX_SESSIONS_REACHED());
+}
+
+template <typename T>
+std::string
+ERROR_THREAD_MODE_ALREADY_BACKGROUND(
+std::function<
+    void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T()(ERROR_THREAD_MODE_ALREADY_BACKGROUND());
+}
+
+template <typename T>
+std::string
+ERROR_THREAD_MODE_NOT_BACKGROUND(
+std::function<
+    void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T()(ERROR_THREAD_MODE_NOT_BACKGROUND());
+}
+
+template <typename T>
+std::string
+ERROR_PROCESS_MODE_ALREADY_BACKGROUND(
+std::function<
+    void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T()(ERROR_PROCESS_MODE_ALREADY_BACKGROUND());
+}
+
+template <typename T>
+std::string
+ERROR_PROCESS_MODE_NOT_BACKGROUND(
+std::function<
+    void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T()(ERROR_PROCESS_MODE_NOT_BACKGROUND());
+}
+
+template <typename T>
+std::string
+ERROR_INVALID_ADDRESS(
+std::function<
+    void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return T()(32);
+}
+
+// -------------------------------------------------------------------
+// @brief Dummy function, to place the template(s) code into the .obj
+//        and .dll file.
+// -------------------------------------------------------------------
+std::string dummy()
+{
+    std::vector< std::string > dumm =
+    {
+        ERROR_THREAD_MODE_NOT_BACKGROUND      <asString<DWORD>>(),
+        ERROR_PROCESS_MODE_ALREADY_BACKGROUND <asString<DWORD>>(),
+        ERROR_PROCESS_MODE_NOT_BACKGROUND     <asString<DWORD>>(),
+        ERROR_INVALID_ADDRESS<asString        <DWORD>>()
+    };
+    return "";
+}
 
 }   // namespace: windows
+
+BOOL WINAPI DllMain(
+    HINSTANCE hinstDLL,     // handle to DLL module
+    DWORD     fdwReason,    // reason for calling function
+    LPVOID    lpvReserved)  // reserved
+{
+    windows::dummy();
+    return true;
+}

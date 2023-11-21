@@ -75,11 +75,16 @@ gzip -9 -c ./temp/windows.mo > ./locale/de_DE.utf8/LC_MESSAGES/windows.mo.gz
 # create object file ...
 # --------------------------------------------------------------------------------
 echo "[= compile GetLastError.cc file =]"
-g++ -O2 -std=c++20 -o ./temp/GetLastError.o -c GetLastError.cc
+g++ -m64 -fPIC -O1 -std=c++20 -o ./temp/GetLastError.o -c GetLastError.cc
 if [[ $? -gt 0 ]]; then
   echo "error: could not create ./temp/GetLastError.o"
   exit 1
 fi
+# --------------------------------------------------------------------------------
+# create test .dll ...
+# --------------------------------------------------------------------------------
+g++ -shared -o ./temp/GetLastError.dll ./temp/GetLastError.o -lintl
+strip ./temp/GetLastError.dll
 
 # --------------------------------------------------------------------------------
 # we reach the end of this script task ...
