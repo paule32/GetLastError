@@ -8,5 +8,9 @@
 *.mo
 *.mo.gz
 
+doc/output
 src/locales
 src/temp
+doc/warnings.txt
+doc/2
+doc/1

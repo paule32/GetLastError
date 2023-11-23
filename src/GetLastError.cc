@@ -24,6 +24,9 @@ extern "C" {
 // --------------------------------------------------------------------
 // C++ standard header stuff ...
 // --------------------------------------------------------------------
+#ifdef DOXYGEN
+# include <string.hpp>
+#else
 # include <iostream>
 # include <string>      // std::string
 # include <map>         // std::map
@@ -31,20 +34,25 @@ extern "C" {
 # include <functional>  // std::function
 # include <sstream>
 # include <any>
+#endif                  // DOXYGEN
 
-// --------------------------------------------------------------------
-// @brief The MSDN - Microsoft Developer Network documentation contains
-//        informations, that is not confirm with the developer header
-//        kit stuff. So, I collect the most informations from the first
-//        developer source (the msdn).
-//        I don't know in detail, if the informations there are all in
-//        right order. If you find a typo or other wrong informations,
-//        let it me know, and drop a message. I apologies me in forward
-//        for future errors.
-//        The most, what I did there was: #undef all possible codes,
-//        and provide a modern C++ coding style of "inline" members.
-//        Inline functions are the new C++ #define features.
-// --------------------------------------------------------------------
+/**
+ * @namespace windows
+ * @brief The MSDN - Microsoft Developer Network documentation.
+ *
+ * The documentaton contains informations, that is not confirm with the developer header
+ * kit stuff. So, I collect the most informations from the first developer source (the msdn).
+ * I don't know in detail, if the informations there are all in right order.
+ * If you find a typo or other wrong informations, let it me know, and drop a message.
+ * I apologies me in forward for future errors.
+ * The most, what I did there was: #undef all possible codes, and provide a modern C++ coding
+ * style of "inline" members. Inline functions are the new C++ #define features.
+ *
+ * We use a namespace, to hope that no other conflicts with an other library or header stuff
+ * occur. I simply call it: namespace windows.
+ * You, as developer can invoke the namespace in your source files via:
+ * "using namespace windows".
+ */
 # undef ERROR_SUCCESS
 # undef ERROR_INVALID_FUNCTION
 # undef ERROR_FILE_NOT_FOUND
@@ -290,20 +298,14 @@ extern "C" {
 # undef ERROR_PROCESS_MODE_NOT_BACKGROUND
 # undef ERROR_INVALID_ADDRESS
 
-// --------------------------------------------------------------------
-// @brief We use a namespace, to hope that no other conflicts with an
-//        other library or header stuff occur. I simply call it:
-//        namespace windows.
-//        You, as developer can invoke the namespace in your source
-//        files via: "using namespace windows".
-// --------------------------------------------------------------------
 namespace windows {
 
-// --------------------------------------------------------------------
-// @brief This section contains the inline functions for the error
-//        codes as return result.
-// --------------------------------------------------------------------
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes as return result.
+ */
 inline DWORD ERROR_SUCCESS() { return 0x0; }
+
 inline DWORD ERROR_INVALID_FUNCTION() { return 0x0; }
 inline DWORD ERROR_FILE_NOT_FOUND() { return 0x0; }
 inline DWORD ERROR_PATH_NOT_FOUND() { return 0x0; }
@@ -548,9 +550,10 @@ inline DWORD ERROR_PROCESS_MODE_ALREADY_BACKGROUND() { return 0x0; }
 inline DWORD ERROR_PROCESS_MODE_NOT_BACKGROUND() { return 0x0; }
 inline DWORD ERROR_INVALID_ADDRESS() { return 0x0; }
 
-// --------------------------------------------------------------------
-// this is our error code map list ...
-// --------------------------------------------------------------------
+/**
+ * @brief This is our error code \color{yellow,std::map} list. The first parameter is the inline error code with the data type \ref DWORD
+ *        The seocnd parameter is the short error message.
+ */
 std::map< DWORD, std::string > WindowsErrorCode =
 {
     { ERROR_SUCCESS(),"The operation completed successfully." },
@@ -854,28 +857,47 @@ std::map< DWORD, std::string > WindowsErrorCode =
     { ERROR_INVALID_ADDRESS(),"Attempt to access invalid address." }
 };
 
-// -------------------------------------------------------------------
-// @brief  In real C++ productive usage, we can use the power of C++
-//         templates. We can get the error code text by "asString",
-//         which returns a std::string.
-//         Okay, this is in real make-up C++ code - but nice to see,
-//         when the code blow up.
-// -------------------------------------------------------------------
+/**
+ * @brief  In real C++ productive usage, we can use the power of C++
+ *         templates. We can get the error code text by "asString",
+ *         which returns a std::string.
+ *         Okay, this is in real make-up C++ code - but nice to see,
+ *         when the code blow up.
+ */
 std::optional<std::string> getErrorCode(DWORD code) {
     auto it = WindowsErrorCode.find(code);
     if (it != WindowsErrorCode.end()) {
         return it->second;
     }   return std::nullopt;
 }
-template <typename T>
+template <typename T = DWORD>
 struct asString {
-    std::string operator ()(DWORD value) const {
+    std::string operator()(T value) const {
         auto   result = getErrorCode(value);
         return result.value_or("unknown error");
     }
 };
 
-template <template< typename> class T> std::string ERROR_SUCCESS() { return T<DWORD>()(ERROR_SUCCESS()); }
+/**
+ * @brief This template provide access to the Windows error code: ERROR_SUCCESS.
+ *        The result is a std::string for the coresponding error code number.
+ *
+ * @tparam T    Data type for the template. (Default: \ref DWORD).
+ * @param  func The std::function that should be execute. Default is nullptr (no exec).
+ * @param  args The std::any Variable that includes the arguments for func.
+ *              This could be a std::vector with a list of arguments, or a single container
+ *              that includes a single argument.
+ * @return std::string The return value for this template function is a std::string.
+ * @see    inline DWORD ERROR_SUCCESS()
+ *
+ */
+template <typename T = DWORD>
+std::string ERROR_SUCCESS(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<T>()(ERROR_SUCCESS());
+}
 template <template< typename> class T> std::string ERROR_INVALID_FUNCTION() { return T<DWORD>()(1); }
 template <template< typename> class T> std::string ERROR_FILE_NOT_FOUND() { return T<DWORD>()(1); }
 template <template< typename> class T> std::string ERROR_PATH_NOT_FOUND() { return T<DWORD>()(1); }
@@ -1094,168 +1116,288 @@ template <template< typename> class T> std::string ERROR_MR_MID_NOT_FOUND() { re
 template <template< typename> class T> std::string ERROR_SCOPE_NOT_FOUND() { return T<DWORD>()(ERROR_SCOPE_NOT_FOUND()); }
 template <template< typename> class T> std::string ERROR_UNDEFINED_SCOPE() { return T<DWORD>()(ERROR_UNDEFINED_SCOPE()); }
 template <template< typename> class T> std::string ERROR_INVALID_CAP() { return T<DWORD>()(ERROR_INVALID_CAP()); }
-template <template< typename> class T> std::string ERROR_DEVICE_UNREACHABLE() { return T<DWORD>()(ERROR_DEVICE_UNREACHABLE()); }
-template <template< typename> class T> std::string ERROR_DEVICE_NO_RESOURCES() { return T<DWORD>()(ERROR_DEVICE_NO_RESOURCES()); }
-template <template< typename> class T> std::string ERROR_DATA_CHECKSUM_ERROR() { return T<DWORD>()(ERROR_DATA_CHECKSUM_ERROR()); }
-template <template< typename> class T> std::string ERROR_INTERMIXED_KERNEL_EA_OPERATION() { return T<DWORD>()(ERROR_INTERMIXED_KERNEL_EA_OPERATION()); }
-template <template< typename> class T> std::string ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED() { return T<DWORD>()(ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED()); }
-template <template< typename> class T> std::string ERROR_OFFSET_ALIGNMENT_VIOLATION() { return T<DWORD>()(ERROR_OFFSET_ALIGNMENT_VIOLATION()); }
-template <template< typename> class T> std::string ERROR_INVALID_FIELD_IN_PARAMETER_LIST() { return T<DWORD>()(ERROR_INVALID_FIELD_IN_PARAMETER_LIST()); }
-template <template< typename> class T> std::string ERROR_OPERATION_IN_PROGRESS() { return T<DWORD>()(ERROR_OPERATION_IN_PROGRESS()); }
-template <template< typename> class T> std::string ERROR_BAD_DEVICE_PATH() { return T<DWORD>()(ERROR_BAD_DEVICE_PATH()); }
-template <template< typename> class T> std::string ERROR_TOO_MANY_DESCRIPTORS() { return T<DWORD>()(ERROR_TOO_MANY_DESCRIPTORS()); }
-template <template< typename> class T> std::string ERROR_SCRUB_DATA_DISABLED() { return T<DWORD>()(ERROR_SCRUB_DATA_DISABLED()); }
-template <template< typename> class T> std::string ERROR_NOT_REDUNDANT_STORAGE() { return T<DWORD>()(ERROR_NOT_REDUNDANT_STORAGE()); }
 
-template <template< typename> class T>
+template <template <typename> class T>
+std::string
+ERROR_DEVICE_UNREACHABLE(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_DEVICE_UNREACHABLE());
+}
+
+template <template <typename> class T>
+std::string
+ERROR_DEVICE_NO_RESOURCES(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_DEVICE_NO_RESOURCES());
+}
+
+template <template <typename> class T>
+std::string
+ERROR_DATA_CHECKSUM_ERROR(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_DATA_CHECKSUM_ERROR());
+}
+
+template <template <typename> class T>
+std::string ERROR_INTERMIXED_KERNEL_EA_OPERATION(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_INTERMIXED_KERNEL_EA_OPERATION());
+}
+
+template <template <typename> class T>
+std::string
+ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED());
+}
+
+template <template <typename> class T>
+std::string
+ERROR_OFFSET_ALIGNMENT_VIOLATION(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_OFFSET_ALIGNMENT_VIOLATION());
+}
+
+template <template <typename> class T>
+std::string
+ERROR_INVALID_FIELD_IN_PARAMETER_LIST(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_INVALID_FIELD_IN_PARAMETER_LIST());
+}
+
+template <template <typename> class T>
+std::string
+ERROR_OPERATION_IN_PROGRESS(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_OPERATION_IN_PROGRESS());
+}
+
+template <template <typename> class T>
+std::string
+ERROR_BAD_DEVICE_PATH(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_BAD_DEVICE_PATH());
+}
+
+template <template <typename> class T>
+std::string
+ERROR_TOO_MANY_DESCRIPTORS(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_TOO_MANY_DESCRIPTORS());
+}
+
+template <template <typename> class T>
+std::string
+ERROR_SCRUB_DATA_DISABLED(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_SCRUB_DATA_DISABLED());
+}
+
+template <template <typename> class T>
+std::string
+ERROR_NOT_REDUNDANT_STORAGE(
+std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    if (func != nullptr)
+        func(args);
+    return asString<DWORD>()(ERROR_NOT_REDUNDANT_STORAGE());
+}
+
+template <template <typename> class T>
 std::string
 ERROR_RESIDENT_FILE_NOT_SUPPORTED(
 std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T<DWORD>()(ERROR_RESIDENT_FILE_NOT_SUPPORTED());
+    return asString<DWORD>()(ERROR_RESIDENT_FILE_NOT_SUPPORTED());
 }
 
-template <template< typename> class T>
+template <template <typename> class T>
 std::string
 ERROR_COMPRESSED_FILE_NOT_SUPPORTED(
 std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T<DWORD>()(ERROR_COMPRESSED_FILE_NOT_SUPPORTED());
+    return asString<DWORD>()(ERROR_COMPRESSED_FILE_NOT_SUPPORTED());
 }
 
-template <template< typename> class T>
+template <template <typename> class T>
 std::string
 ERROR_DIRECTORY_NOT_SUPPORTED(
 std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T<DWORD>()(ERROR_DIRECTORY_NOT_SUPPORTED());
+    return asString<DWORD>()(ERROR_DIRECTORY_NOT_SUPPORTED());
 }
 
-template <template< typename> class T>
+template <template <typename> class T>
 std::string
 ERROR_NOT_READ_FROM_COPY(
 std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T<DWORD>()(ERROR_NOT_READ_FROM_COPY());
+    return asString<DWORD>()(ERROR_NOT_READ_FROM_COPY());
 }
 
-template <typename T>
+template <template <typename> class T>
 std::string
 ERROR_FAIL_NOACTION_REBOOT(
 std::function<
     void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T()(ERROR_FAIL_NOACTION_REBOOT());
+    return asString<DWORD>()(ERROR_FAIL_NOACTION_REBOOT());
 }
 
-template <typename T>
+template <template <typename> class T>
 std::string
 ERROR_FAIL_SHUTDOWN(
 std::function<
     void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T()(ERROR_FAIL_SHUTDOWN());
+    return asString<DWORD>()(ERROR_FAIL_SHUTDOWN());
 }
 
-template <typename T>
+template <template <typename> class T>
 std::string
 ERROR_FAIL_RESTART(
 std::function<
     void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T()(ERROR_FAIL_RESTART());
+    return asString<DWORD>()(ERROR_FAIL_RESTART());
 }
 
-template <typename T>
+template <template <typename> class T>
 std::string
 ERROR_MAX_SESSIONS_REACHED(
 std::function<
     void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T()(ERROR_MAX_SESSIONS_REACHED());
+    return asString<DWORD>()(ERROR_MAX_SESSIONS_REACHED());
 }
 
-template <typename T>
+template <template <typename> class T>
 std::string
 ERROR_THREAD_MODE_ALREADY_BACKGROUND(
 std::function<
     void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T()(ERROR_THREAD_MODE_ALREADY_BACKGROUND());
+    return asString<DWORD>()(ERROR_THREAD_MODE_ALREADY_BACKGROUND());
 }
 
-template <typename T>
+template <template <typename> class T>
 std::string
 ERROR_THREAD_MODE_NOT_BACKGROUND(
 std::function<
     void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T()(ERROR_THREAD_MODE_NOT_BACKGROUND());
+    return asString<DWORD>()(ERROR_THREAD_MODE_NOT_BACKGROUND());
 }
 
-template <typename T>
+template <template <typename> class T>
 std::string
 ERROR_PROCESS_MODE_ALREADY_BACKGROUND(
 std::function<
     void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T()(ERROR_PROCESS_MODE_ALREADY_BACKGROUND());
+    return asString<DWORD>()(ERROR_PROCESS_MODE_ALREADY_BACKGROUND());
 }
 
-template <typename T>
+template <template <typename> class T>
 std::string
 ERROR_PROCESS_MODE_NOT_BACKGROUND(
 std::function<
     void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T()(ERROR_PROCESS_MODE_NOT_BACKGROUND());
+    return asString<DWORD>()(ERROR_PROCESS_MODE_NOT_BACKGROUND());
 }
 
-template <typename T>
+template <template <typename> class T>
 std::string
 ERROR_INVALID_ADDRESS(
 std::function<
     void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return T()(32);
+    return asString<DWORD>()(ERROR_INVALID_ADDRESS());
 }
 
 // -------------------------------------------------------------------
 // @brief Dummy function, to place the template(s) code into the .obj
 //        and .dll file.
 // -------------------------------------------------------------------
-std::string dummy()
+static std::string dummy()
 {
     std::vector< std::string > dumm =
     {
-        ERROR_THREAD_MODE_NOT_BACKGROUND      <asString<DWORD>>(),
-        ERROR_PROCESS_MODE_ALREADY_BACKGROUND <asString<DWORD>>(),
-        ERROR_PROCESS_MODE_NOT_BACKGROUND     <asString<DWORD>>(),
-        ERROR_INVALID_ADDRESS<asString        <DWORD>>()
+        ERROR_THREAD_MODE_NOT_BACKGROUND      <asString> (),
+        ERROR_PROCESS_MODE_ALREADY_BACKGROUND <asString> (),
+        ERROR_PROCESS_MODE_NOT_BACKGROUND     <asString> (),
+        ERROR_INVALID_ADDRESS                 <asString> ()
     };
     return "";
 }
 
 }   // namespace: windows
 
+struct strap {
+    static std::string data;
+    strap(const char* value) {
+        data = value;
+    }
+    
+    friend std::ostream& operator<<(std::ostream& os, const strap& s) {
+        os << data;
+        return os;
+    }
+    
+    strap & operator << (const char* value) {
+        data += value;
+        return *this;
+    }
+};
+std::string strap::data;
+
+// -------------------------------------------------------------------
+// .dll entry point ...
+// -------------------------------------------------------------------
 BOOL WINAPI DllMain(
     HINSTANCE hinstDLL,     // handle to DLL module
     DWORD     fdwReason,    // reason for calling function
     LPVOID    lpvReserved)  // reserved
 {
     windows::dummy();
+    strap s("xxxxx");
+    
+    s << "huhu" << "haha";
+
     return true;
 }

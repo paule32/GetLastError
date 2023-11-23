@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doxygenlayout version="1.0">
+  <!-- Definition der Seite -->
+  <doxygen>
+    <compounddef>
+      <sectiondef>
+        <memberdef kind="file">
+          <name>index.html</name>
+          <innerpage>
+            <name>mainpage</name>
+          </innerpage>
+        </memberdef>
+      </sectiondef>
+    </compounddef>
+  </doxygen>
+
+  <!-- Hauptinhalt -->
+  <doxygen>
+    <compounddef>
+      <sectiondef>
+        <memberdef kind="namespace">
+          <name>MyNamespace</name>
+          <innerclass>
+            <name>MyClass</name>
+            <innernamespace>
+              <name>InnerNamespace</name>
+            </innernamespace>
+            <innernamespace>
+              <name>AnotherNamespace</name>
+            </innernamespace>
+            <innerclass>
+              <name>InnerClass</name>
+            </innerclass>
+          </innerclass>
+        </memberdef>
+      </sectiondef>
+    </compounddef>
+  </doxygen>
+</doxygenlayout>
