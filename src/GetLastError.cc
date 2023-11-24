@@ -302,252 +302,1954 @@ namespace windows {
 
 /**
  * @brief This inline function contains the inline functions for the error
- *        codes as return result.
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
  */
 inline DWORD ERROR_SUCCESS() { return 0x0; }
 
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_FUNCTION() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FILE_NOT_FOUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PATH_NOT_FOUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_OPEN_FILES() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_ACCESS_DENIED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_HANDLE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_ARENA_TRASHED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_ENOUGH_MEMORY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_BLOCK() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_ENVIRONMENT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_FORMAT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_ACCESS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_DATA() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_OUTOFMEMORY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_DRIVE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_CURRENT_DIRECTORY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_SAME_DEVICE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NO_MORE_FILES() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_WRITE_PROTECT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_UNIT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_READY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_COMMAND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_CRC() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_LENGTH() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SEEK() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_DOS_DISK() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SECTOR_NOT_FOUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_OUT_OF_PAPER() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_WRITE_FAULT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_READ_FAULT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_GEN_FAILURE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SHARING_VIOLATION() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_LOCK_VIOLATION() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_WRONG_DISK() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SHARING_BUFFER_EXCEEDED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_HANDLE_EOF() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_HANDLE_DISK_FULL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_SUPPORTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_REM_NOT_LIST() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DUP_NAME() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_NETPATH() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NETWORK_BUSY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DEV_NOT_EXIST() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_CMDS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_ADAP_HDW_ERR() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_NET_RESP() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_UNEXP_NET_ERR() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_REM_ADAP() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PRINTQ_FULL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NO_SPOOL_SPACE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PRINT_CANCELLED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NETNAME_DELETED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NETWORK_ACCESS_DENIED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_DEV_TYPE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_NET_NAME() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_NAMES() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_SESS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SHARING_PAUSED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_REQ_NOT_ACCEP() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_REDIR_PAUSED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FILE_EXISTS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_CANNOT_MAKE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FAIL_I24() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_OUT_OF_STRUCTURES() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_ALREADY_ASSIGNED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_PASSWORD() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_PARAMETER() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NET_WRITE_FAULT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NO_PROC_SLOTS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_SEMAPHORES() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_EXCL_SEM_ALREADY_OWNED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SEM_IS_SET() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_SEM_REQUESTS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_AT_INTERRUPT_TIME() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SEM_OWNER_DIED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SEM_USER_LIMIT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DISK_CHANGE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DRIVE_LOCKED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BROKEN_PIPE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_OPEN_FAILED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BUFFER_OVERFLOW() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DISK_FULL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NO_MORE_SEARCH_HANDLES() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_TARGET_HANDLE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_CATEGORY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_VERIFY_SWITCH() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_DRIVER_LEVEL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_CALL_NOT_IMPLEMENTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SEM_TIMEOUT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INSUFFICIENT_BUFFER() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_NAME() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_LEVEL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NO_VOLUME_LABEL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_MOD_NOT_FOUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PROC_NOT_FOUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_WAIT_NO_CHILDREN() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_CHILD_NOT_COMPLETE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DIRECT_ACCESS_HANDLE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NEGATIVE_SEEK() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SEEK_ON_DEVICE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_IS_JOIN_TARGET() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_IS_JOINED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_IS_SUBSTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_JOINED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_SUBSTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_JOIN_TO_JOIN() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SUBST_TO_SUBST() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_JOIN_TO_SUBST() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SUBST_TO_JOIN() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BUSY_DRIVE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SAME_DRIVE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DIR_NOT_ROOT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DIR_NOT_EMPTY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_IS_SUBST_PATH() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_IS_JOIN_PATH() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PATH_BUSY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_IS_SUBST_TARGET() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SYSTEM_TRACE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_EVENT_COUNT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_MUXWAITERS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_LIST_FORMAT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_LABEL_TOO_LONG() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_TCBS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SIGNAL_REFUSED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DISCARDED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_LOCKED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_THREADID_ADDR() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_ARGUMENTS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_PATHNAME() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SIGNAL_PENDING() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_MAX_THRDS_REACHED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_LOCK_FAILED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BUSY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DEVICE_SUPPORT_IN_PROGRESS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_CANCEL_VIOLATION() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_ATOMIC_LOCKS_NOT_SUPPORTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_SEGMENT_NUMBER() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_ORDINAL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_ALREADY_EXISTS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_FLAG_NUMBER() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SEM_NOT_FOUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_STARTING_CODESEG() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_STACKSEG() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_MODULETYPE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_EXE_SIGNATURE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_EXE_MARKED_INVALID() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_EXE_FORMAT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_ITERATED_DATA_EXCEEDS_64k() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_MINALLOCSIZE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DYNLINK_FROM_INVALID_RING() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_IOPL_NOT_ENABLED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_SEGDPL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_AUTODATASEG_EXCEEDS_64k() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_RING2SEG_MUST_BE_MOVABLE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_RELOC_CHAIN_XEEDS_SEGLIM() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INFLOOP_IN_RELOC_CHAIN() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_ENVVAR_NOT_FOUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NO_SIGNAL_SENT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FILENAME_EXCED_RANGE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_RING2_STACK_IN_USE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_META_EXPANSION_TOO_LONG() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_SIGNAL_NUMBER() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_THREAD_1_INACTIVE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_LOCKED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_MODULES() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NESTING_NOT_ALLOWED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_EXE_MACHINE_TYPE_MISMATCH() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_EXE_CANNOT_MODIFY_SIGNED_BINARY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_EXE_CANNOT_MODIFY_STRONG_SIGNED_BINARY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FILE_CHECKED_OUT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_CHECKOUT_REQUIRED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_FILE_TYPE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FILE_TOO_LARGE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FORMS_AUTH_REQUIRED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_VIRUS_INFECTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_VIRUS_DELETED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PIPE_LOCAL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_PIPE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PIPE_BUSY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NO_DATA() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PIPE_NOT_CONNECTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_MORE_DATA() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_VC_DISCONNECTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_EA_NAME() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_EA_LIST_INCONSISTENT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD WAIT_TIMEOUT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NO_MORE_ITEMS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_CANNOT_COPY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DIRECTORY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_EAS_DIDNT_FIT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_EA_FILE_CORRUPT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_EA_TABLE_FULL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_EA_HANDLE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_EAS_NOT_SUPPORTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_OWNER() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_POSTS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PARTIAL_COPY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_OPLOCK_NOT_GRANTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_OPLOCK_PROTOCOL() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DISK_TOO_FRAGMENTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DELETE_PENDING() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INCOMPATIBLE_WITH_GLOBAL_SHORT_NAME_REGISTRY_SETTING() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SHORT_NAMES_NOT_ENABLED_ON_VOLUME() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SECURITY_STREAM_IS_INCONSISTENT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_LOCK_RANGE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_IMAGE_SUBSYSTEM_NOT_PRESENT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOTIFICATION_GUID_ALREADY_DEFINED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_EXCEPTION_HANDLER() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DUPLICATE_PRIVILEGES() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NO_RANGES_PROCESSED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_ALLOWED_ON_SYSTEM_FILE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DISK_RESOURCES_EXHAUSTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_TOKEN() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DEVICE_FEATURE_NOT_SUPPORTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_MR_MID_NOT_FOUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SCOPE_NOT_FOUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_UNDEFINED_SCOPE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_CAP() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DEVICE_UNREACHABLE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DEVICE_NO_RESOURCES() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DATA_CHECKSUM_ERROR() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INTERMIXED_KERNEL_EA_OPERATION() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_OFFSET_ALIGNMENT_VIOLATION() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_FIELD_IN_PARAMETER_LIST() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_OPERATION_IN_PROGRESS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_BAD_DEVICE_PATH() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_TOO_MANY_DESCRIPTORS() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_SCRUB_DATA_DISABLED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_REDUNDANT_STORAGE() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_RESIDENT_FILE_NOT_SUPPORTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_COMPRESSED_FILE_NOT_SUPPORTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_DIRECTORY_NOT_SUPPORTED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_NOT_READ_FROM_COPY() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FAIL_NOACTION_REBOOT() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FAIL_SHUTDOWN() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_FAIL_RESTART() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_MAX_SESSIONS_REACHED() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_THREAD_MODE_ALREADY_BACKGROUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_THREAD_MODE_NOT_BACKGROUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PROCESS_MODE_ALREADY_BACKGROUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_PROCESS_MODE_NOT_BACKGROUND() { return 0x0; }
+
+/**
+ * @brief This inline function contains the inline functions for the error
+ *        codes ERROR_SUCCESS as return result.
+ *
+ * @return DWORD  -  The error code number.
+ */
 inline DWORD ERROR_INVALID_ADDRESS() { return 0x0; }
 
 /**
@@ -870,11 +2572,25 @@ std::optional<std::string> getErrorCode(DWORD code) {
         return it->second;
     }   return std::nullopt;
 }
+
 template <typename T = DWORD>
 struct asString {
     std::string operator()(T value) const {
         auto   result = getErrorCode(value);
         return result.value_or("unknown error");
+    }
+    std::string operator()() const {
+        return "asString";
+    }
+};
+template <typename T = DWORD>
+struct asLogger {
+    std::string operator()(T value) const {
+        auto   result = getErrorCode(value);
+        return result.value_or("unknown logger error");
+    }
+    std::string operator()() const {
+        return "asLogger";
     }
 };
 
@@ -887,16 +2603,17 @@ struct asString {
  * @param  args The std::any Variable that includes the arguments for func.
  *              This could be a std::vector with a list of arguments, or a single container
  *              that includes a single argument.
+ *
  * @return std::string The return value for this template function is a std::string.
  * @see    inline DWORD ERROR_SUCCESS()
  *
  */
-template <typename T = DWORD>
+template <template <typename> class T>
 std::string ERROR_SUCCESS(
-std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
+    std::function<void(std::any)> func = nullptr, std::any args = nullptr) {
     if (func != nullptr)
         func(args);
-    return asString<T>()(ERROR_SUCCESS());
+    return T<DWORD>()(ERROR_SUCCESS());
 }
 template <template< typename> class T> std::string ERROR_INVALID_FUNCTION() { return T<DWORD>()(1); }
 template <template< typename> class T> std::string ERROR_FILE_NOT_FOUND() { return T<DWORD>()(1); }
@@ -1368,24 +3085,6 @@ static std::string dummy()
 
 }   // namespace: windows
 
-struct strap {
-    static std::string data;
-    strap(const char* value) {
-        data = value;
-    }
-    
-    friend std::ostream& operator<<(std::ostream& os, const strap& s) {
-        os << data;
-        return os;
-    }
-    
-    strap & operator << (const char* value) {
-        data += value;
-        return *this;
-    }
-};
-std::string strap::data;
-
 // -------------------------------------------------------------------
 // .dll entry point ...
 // -------------------------------------------------------------------
@@ -1395,9 +3094,5 @@ BOOL WINAPI DllMain(
     LPVOID    lpvReserved)  // reserved
 {
     windows::dummy();
-    strap s("xxxxx");
-    
-    s << "huhu" << "haha";
-
     return true;
 }
