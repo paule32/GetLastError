@@ -265,7 +265,7 @@ DOCSET_BUNDLE_ID       = org.doxygen.Project
 DOCSET_PUBLISHER_ID    = org.doxygen.Publisher
 DOCSET_PUBLISHER_NAME  = Publisher
 
-GENERATE_HTMLHELP      = YES
+GENERATE_HTMLHELP      = NO
 CHM_FILE               = GetLastError.chm
 
 
@@ -298,7 +298,7 @@ ECLIPSE_DOC_ID         = org.doxygen.Project
 
 DISABLE_INDEX          = NO
 
-GENERATE_TREEVIEW      = NO
+GENERATE_TREEVIEW      = YES
 FULL_SIDEBAR           = YES
 
 ENUM_VALUES_PER_LINE   = 4
